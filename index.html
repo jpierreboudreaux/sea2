@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+    <title>SEA LEVEL CHANGE</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #212121;
+            color: #FFF;
+            line-height: 1.75em;
+        }
+
+        #article {
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .map .map-info {
+            text-align: center;
+
+            top: 50%; left: 0; bottom: 0; right: 0;
+            transform: translateY(-50%);
+            
+            margin: 0 auto;
+            position: absolute;
+        }
+
+        .map .map-info .cards {
+            font-size: 1.2em;
+            width: 45%;
+            max-width: 900px;
+            margin: 20px auto 0 auto;
+        }
+
+        .section {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .title {
+            background: rgb(66, 66, 66);
+            display: inline-block;
+            padding: 20px;
+
+            font-size: 3em;
+            font-weight: bold;
+            line-height: 1em;
+        }
+
+        .mpc {
+            background: rgba(66, 66, 66, 0.75);
+            padding: 20px; 
+            margin-top: 20px;
+        }
+
+        .historic {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .historic img {
+            min-height: 1000px;
+            max-height: 1000px;
+        }
+
+        .content {
+            text-align: center;
+            width: 45%;
+            max-width: 900px;
+            font-size: 1.35em;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.5em;
+            padding: .5em 0;
+            margin: 0 auto;
+        }
+
+        .content-wrapper {
+            background: rgb(66, 66, 66);
+            width: 100%;
+            margin-top: 1000px;
+        }
+
+        .today { min-height: 1000px; }
+
+        a { color: #aec6cf; }
+
+    </style>
+</head>
+<body>
+    <div id="map" class="map-view"></div>
+    <div id="article">
+        <div class="map">
+            <div class="map-info">
+                <div class="title">
+                    COASTLINE DEPRECATION <br> AND ITS VARIOUS EFFECTS
+                </div>
+                <div class="cards mpc">
+                    <div class="card">
+                        <span style="padding: 5px;font-size: 1.25em;letter-spacing: 7px;">
+                            <i><b>EFFECTS OF THE SEA</b></i>
+                        </span>
+                        <p>
+                            As the effects of the sea level rising and coastal erosion accelerate, millions of people, countless amounts of wildlife, and potentially billions of dollars in property are at risk.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <br>
+                        <span style="padding: 5px;font-size: 1.25em;letter-spacing: 7px;"><b><i>EFFECTS OF THE PEOPLE</i></b></span>
+                        <p>
+                            For many decades, human activity across the Mississippi River have caused the sediment flow to decrease, causing the Mississippi River delta to erode.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="content-1" class="content-wrapper">
+                    <div class="content">
+                        <p class="section">
+                            <b>new orleans</b><i><br><br> Louisiana</i>
+                        </p>
+                        <p>
+                            The first levee built along the Mississippi was by the French in 1717 to protect the fledgling city of New Orleans<sup>1</sup>. Since then, levees have been built along the Mississippi to prevent flooding or to divert its flow. However, this has had the unintended side effect of reducing the amount of sediement that gets introduced into the river system. The reduced sediment has meant that the Mississippi delta region has not been receiving enough to replenish the amount that is eroded away by the sea.
+                        </p>
+                        <p><sup>1</sup><a href="https://www.mvd.usace.army.mil/Portals/52/docs/MRC/MRT_Levees.pdf?ver=2017-07-27-141912-910">US Army</a></p>
+                    </div>
+                    <div class="historic">
+                        <img src="https://static.barnden.dev/LA_Dime_1893.png" alt="Picture of Louisiana's Coast in 1893">
+                    </div>
+                    <div class="content">
+                        <p>Coastal erosion has already escalated to staggering levels in the Gulf of Mexico. Post 1930, Louisiana has lost upwards of 2000 square miles of land, and the continual erosion causes an entire football field of wetlands to subside every 100 minutes.</p>
+                        <p>The above map shows what a portion of the Louisiana coast line looked like in 1893, notice all the darker shades of blue indicating land.</p>
+                        <p>Below, is the same spot over 128 years later...</p>
+                    </div>
+                </div>
+                <div class="today"></div>
+                <div id="content-2" class="content-wrapper">
+                    <div class="content">
+                        <p class="section">today</p>
+                        <p>
+                            In the present day, all the coastal regions that are highlighted in red are at risk of being flooded by rising sea levels caused by climate change.
+                        </p>
+                        <p>This poses a risk far greater than the eroding delta as this issue exacerbates the flooding issues that the coastal Louisiana currently has, and also takes away land that could be used to live/work on reducing both population and the economy.  </p>
+                        <p>Moreover, as it is accelerating at a much faster pace than the coastal erosion is, both would need to be addressed in order for the long term health of the region.</p>
+                    </div>
+                </div>
+                <div id="content-3" class="content-wrapper">
+                    <div class="content">
+                        <p class="section">ACCOMPANYING GRAPHS</p>
+                        <img src="https://static.barnden.dev/LACoast-erosion-rate.png" alt="Graph Representing Coastal Land Loss per Coastal Parish">
+                        <p>This graph showcases the rate of change (meters/year) of the coastline's loss for Lousiana coastal parishes. It was created through modelling data from the USGS concerning longterm coastal change of the area.</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYmFybmRlbiIsImEiOiJjanM1Z2pyMW8wZmdvM3lueWlmeDd0MWt6In0.gasnaRPuWj9vSWNNxew-xg'
+
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/barnden/ckkk1x5gu0qm317mie9b3uj8q',
+            center: [0, 0],
+            zoom: 7,
+            pitch: 40,
+            interactive: false,
+            continuousWorld: false,
+            noWrap: true
+        })
+
+        const parishes = {
+            stcharles: ["St. Charles Parish", 9700],
+            plaquemines: ["Plaquemines", 50700],
+            terrebonne: ["Terrebonne", 34400],
+            lafourche: ["LaFourche", 37000],
+            orleans: ["Orleans", 28000],
+            jefferson: ["Jefferson", 34900],
+            stbernard: ["Saint Bernard", 40100],
+            stmary: ["Saint Mary", 8700],
+            vermilion: ["Vermilion", 10300],
+            cameron: ["Cameron", 35300],
+            iberia: ["Iberia", 8100]
+        }
+
+        map.on('load', function () {
+            // map.setPaintProperty('lacoast-5erseh', 'fill-color', '#F00')
+            // map.setPaintProperty('lacoast-5erseh', 'fill-opacity', 0.15)
+
+            map.addSource('lacoast', {
+                type: 'geojson',
+                data: 'https://static.barnden.dev/lacoast.json'
+            })
+
+            // Generate all extrusion layers for the parishes
+            Object.entries(parishes).forEach(e => {
+                let [k, v] = e
+                map.addLayer({
+                    id: k,
+                    type: 'fill-extrusion',
+                    source: 'lacoast',
+                    paint: {
+                        'fill-extrusion-color': "#0F0",
+                        'fill-extrusion-height': 0,
+                        'fill-extrusion-opacity': 0.
+                    },
+                    filter: ["==", "name", v[0]]
+                })
+            })
+
+            // This is how you update one of the "paint" properties.
+            // See map.addLayer above for which  properties you can change
+            // map.setPaintProperty("parish", "fill-extrusion-height", 50000)
+
+            const nola = [29.75, -90, 7.5]
+            const false_river = [29.6, -89.35, 10]
+            const la = [30, -91.5, 7.5]
+
+            let overlay = false
+            let generate = true
+
+            function goto(a, b, s, i) {
+                let cy = a * i
+                let cx = b * i
+                let czoom = (s * i) >= 2 ? s * i : 2
+
+                map.jumpTo({ center: [cx, cy], zoom: czoom })
+            }
+
+            window.addEventListener('scroll', e => {
+                let y = window.scrollY
+
+                if (y < 1350) {
+                    let inv = (y / 900) <= 1 ? (y / 900) : 1
+
+                    if (y > 900)
+                        map.jumpTo({ center: [nola[1], nola[0]], zoom: nola[2] })
+                    else
+                        goto(...nola, inv)
+                } else if (y < 3500) {
+                    let inv = (y / 3000) <= 1 ? (y / 3000) : 1
+                    goto(...false_river, inv)
+
+                    if (overlay) {
+                        map.setPaintProperty('lacoast-5erseh', 'fill-opacity', 0.0)
+                        overlay = false
+                    }
+
+                } else if (y > 4000 && y < 5000) {
+                    let inv = (y / 4500) <= 1 ? (y / 4500) : 1
+                    goto(...la, inv)
+
+                    if (!overlay) {
+                        map.setPaintProperty('lacoast-5erseh', 'fill-color', '#F00')
+                        map.setPaintProperty('lacoast-5erseh', 'fill-opacity', 0.15)
+                        overlay = true
+                    }
+
+                    // Set opacity of extrusion layers to 0 (invisible)
+                    Object.entries(parishes).forEach(e => {
+                        let [k, v] = e
+                        map.setPaintProperty(k, 'fill-extrusion-opacity', 0)
+                        map.setPaintProperty(k, 'fill-extrusion-height', 0)
+                    })
+                } else if (y > 5000) {
+                    // Set opacity of extrusion layers to 0.5 (visible)
+                    Object.entries(parishes).forEach(e => {
+                        let [k, v] = e
+                        map.setPaintProperty(k, 'fill-extrusion-opacity', 0.5)
+                        map.setPaintProperty(k, 'fill-extrusion-height', v[1])
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>
