@@ -208,7 +208,7 @@
             // map.setPaintProperty('lacoast-5erseh', 'fill-color', '#F00')
             // map.setPaintProperty('lacoast-5erseh', 'fill-opacity', 0.15)
 
-            map.addSource('lacoast', {
+            map.addSource('gulfmap2', {
                 type: 'geojson',
                 data: 'https://github.com/jpierreboudreaux/sea2/blob/main/gulfmap2.json'
             })
@@ -219,7 +219,7 @@
                 map.addLayer({
                     id: k,
                     type: 'fill-extrusion',
-                    source: 'lacoast',
+                    source: 'gulfmap2',
                     paint: {
                         'fill-extrusion-color': "#0F0",
                         'fill-extrusion-height': 0,
@@ -263,7 +263,7 @@
                     goto(...false_river, inv)
 
                     if (overlay) {
-                        map.setPaintProperty('lacoast-5erseh', 'fill-opacity', 0.0)
+                        map.setPaintProperty('gulfmap2-5erseh', 'fill-opacity', 0.0)
                         overlay = false
                     }
 
@@ -272,8 +272,8 @@
                     goto(...la, inv)
 
                     if (!overlay) {
-                        map.setPaintProperty('lacoast-5erseh', 'fill-color', '#F00')
-                        map.setPaintProperty('lacoast-5erseh', 'fill-opacity', 0.15)
+                        map.setPaintProperty('gulfmap2-5erseh', 'fill-color', '#F00')
+                        map.setPaintProperty('gulfmap2-5erseh', 'fill-opacity', 0.15)
                         overlay = true
                     }
 
