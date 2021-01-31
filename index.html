@@ -247,6 +247,20 @@
                 map.jumpTo({ center: [cx, cy], zoom: czoom })
             }
 
+             map.on('mousemove', function(e) {
+                if (window.scrollTop < 3000) return
+                var parish = map.queryRenderedFeatures(e.point, {
+                    layers: ['coast']
+                });
+
+                if (parish.length > 0) {
+                    console.log(parish[0])
+                    document.getElementById('pd').innerHTML = '<h3><strong>' + parish[0].properties.name + '</strong></h3><p><strong><em>' + parish[0].properties.losspercent + '</strong>% of land lost from 1930</em></p>';
+                } else {
+                    document.getElementById('pd').innerHTML = '<p>Hover over a parish for more information.</p>';
+                }
+            })
+
             window.addEventListener('scroll', e => {
                 let y = window.scrollY
 
