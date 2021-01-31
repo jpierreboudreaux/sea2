@@ -161,14 +161,14 @@
                             In the present day, all the coastal regions that are highlighted in red are at risk of being flooded by rising sea levels caused by climate change.
                         </p>
                         <p>This poses a risk far greater than the eroding delta as this issue exacerbates the flooding issues that the coastal Louisiana currently has, and also takes away land that could be used to live/work on reducing both population and the economy.  </p>
-                        <p>Moreover, as it is accelerating at a much faster pace than the coastal erosion is, both would need to be addressed in order for the long term health of the region.</p>
+                        <p>Moreover, as it is accelerating at a much faster pace than the coastal erosion is, both would need to be addressed for the long term health of the region to be assured.</p>
                     </div>
                 </div>
                 <div id="content-3" class="content-wrapper">
                     <div class="content">
                         <p class="section">ACCOMPANYING GRAPHS</p>
                         <img src="https://static.barnden.dev/LACoast-erosion-rate.png" alt="Graph Representing Coastal Land Loss per Coastal Parish">
-                        <p>This graph showcases the rate of change (meters/year) of the coastline's loss for Lousiana coastal parishes. It was created through modelling data from the USGS concerning longterm coastal change of the area.</p> 
+                        <p>This graph showcases the rate of change (meters/year) of the coastline's loss for Lousiana coastal parishes. It was created through modelling data from the USGS concerning longterm coastal change.</p> 
                     </div>
                 </div>
             </div>
@@ -246,20 +246,6 @@
 
                 map.jumpTo({ center: [cx, cy], zoom: czoom })
             }
-
-             map.on('mousemove', function(e) {
-                if (window.scrollTop < 3000) return
-                var parish = map.queryRenderedFeatures(e.point, {
-                    layers: ['coast']
-                });
-
-                if (parish.length > 0) {
-                    console.log(parish[0])
-                    document.getElementById('pd').innerHTML = '<h3><strong>' + parish[0].properties.name + '</strong></h3><p><strong><em>' + parish[0].properties.losspercent + '</strong>% of land lost from 1930</em></p>';
-                } else {
-                    document.getElementById('pd').innerHTML = '<p>Hover over a parish for more information.</p>';
-                }
-            })
 
             window.addEventListener('scroll', e => {
                 let y = window.scrollY
